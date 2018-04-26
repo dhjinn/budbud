@@ -8,29 +8,10 @@
   <% if @user %>
     <% @user.transactions.each do |transaction| %>
       <% if not transaction.reimbursed %>
-          Club: <%= transaction.admin.club_name %> Date: <%= transaction.date %> 
-          Amount: <%= transaction.value %> Note: <%= transaction.notes %>
+          Club: <%= transaction.club_name %> | Date: <%= transaction.date %> |
+          Amount: <%= transaction.value %> | Note: <%= transaction.notes %> | 
+          <%= button_to "Delete", delete_path(id: transaction), :class => "button medium", :method => :patch %><br />
         <% end %>   
       <% end %>
   <% end %>
 <%= link_to "All Transactions", all_path, :class => "button medium"%>
-
-<h3>Clubs I'm In</h3>
-<div class="container">
-    <div class="row">
-        <table>
-
-          <tbody>
-            <% if @clubs %>
-              <% @clubs.each do |club| %>
-                <tr>
-                  <td><%= club.club_name %></td>
-  <!--                 <td><%= club.id %></td> -->
-                </tr>
-              <% end %>
-            <% end %>
-        </tbody>
-
-        </table>
-    </div>
-</div>

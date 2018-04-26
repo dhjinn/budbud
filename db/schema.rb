@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426151826) do
+ActiveRecord::Schema.define(version: 20180426191758) do
 
   create_table "admins", force: :cascade do |t|
     t.string "club_name"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20180426151826) do
     t.date "date"
     t.string "notes"
     t.boolean "reimbursed"
-    t.integer "admin_id"
+    t.string "club_name"
   end
 
   create_table "users", force: :cascade do |t|

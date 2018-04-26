@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :transactions
   has_many :memberships
   has_many :admins, through: :memberships
+  accepts_nested_attributes_for :admins
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end

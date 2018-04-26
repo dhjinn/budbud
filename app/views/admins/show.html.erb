@@ -1,0 +1,39 @@
+<h3>Admin Dashboard</h3>
+<p>Club: <%= @admin.club_name %></p>
+<p>Email: <%= @admin.email %></p>
+
+
+<h3>Pending Transactions</h3>
+
+  <% @matching = Transaction.where(:club_name => @admin.club_name)%>
+  <% @matching.each do |transaction| %>
+    <% if not transaction.reimbursed %>
+        Club: <%= transaction.club_name %> | Member: <%= transaction.user.name %> |
+        Date: <%= transaction.date %> |
+        Amount: <%= transaction.value %> | Note: <%= transaction.notes %> | 
+        <%= button_to "Reimburse", reimburse_path(id: transaction), :class => "button medium", :method => :patch %>
+        <br />
+      <% end %>   
+    <% end %>
+
+<%= link_to "All Transactions", all_path, :class => "button medium"%>
+
+<h3>Budget</h3>
+  <% if @admin %>
+      Total Budget: <%= @admin.balance %> 
+      
+      Current Balance: <%= @admin.balance %>
+  <% end %>
+<br />
+<%= button_to "+ 0.01", update1_path(id: current_admin), :class => "button medium", :method => :patch %>
+<%= button_to "- 0.01", update7_path(id: current_admin), :class => "button medium", :method => :patch %><br />
+<%= button_to "+ 0.10", update2_path(id: current_admin), :class => "button medium", :method => :patch %>
+<%= button_to "- 0.10", update8_path(id: current_admin), :class => "button medium", :method => :patch %><br />
+<%= button_to "+ 1.00", update3_path(id: current_admin), :class => "button medium", :method => :patch %>
+<%= button_to "- 1.00", update9_path(id: current_admin), :class => "button medium", :method => :patch %><br />
+<%= button_to "+ 10.00", update4_path(id: current_admin), :class => "button medium", :method => :patch %>
+<%= button_to "- 10.00", update10_path(id: current_admin), :class => "button medium", :method => :patch %><br />
+<%= button_to "+ 100.00", update5_path(id: current_admin), :class => "button medium", :method => :patch %>
+<%= button_to "- 100.00", update11_path(id: current_admin), :class => "button medium", :method => :patch %><br />
+<%= button_to "+ 1000.00", update6_path(id: current_admin), :class => "button medium", :method => :patch %>
+<%= button_to "- 1000.00", update12_path(id: current_admin), :class => "button medium", :method => :patch %><br />
