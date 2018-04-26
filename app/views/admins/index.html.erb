@@ -1,0 +1,22 @@
+<h3>Admin Dashboard</h3>
+<p>Club: <%= @admin.club_name if @admin %></p>
+<p>Email: <%= @admin.email if @admin %></p>
+
+
+<h3>Pending Transactions</h3>
+  <% if @admin %>
+    <% @admin.transactions.each do |transaction| %>
+      <% if not transaction.reimbursed %>
+          Club: <%= transaction.admin.club_name %> Member: <%= transaction.user.name %> 
+          Date: <%= transaction.date %> 
+          Amount: <%= transaction.value %> Note: <%= transaction.notes %>
+        <% end %>   
+      <% end %>
+  <% end %>
+<%= link_to "All Transactions", all_path, :class => "button medium"%>
+
+<h3>Budget</h3>
+  <% if @admin %>
+      Total Budget: <% @admin.balance %> 
+      Current Balance: <% @admin.balance%>
+  <% end %>

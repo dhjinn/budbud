@@ -1,0 +1,15 @@
+<h1>BUD BUD</h1>
+<h3> 
+	<% if user_signed_in? %>
+	    <%= link_to "Go To Dashboard", users_url, :class => 'button_to'  %>
+	<% elsif admin_signed_in? %>
+
+	<% else %>
+		<%= link_to "Admin Sign up", new_admin_registration_path, :class => 'button_to'  %> |
+	    <%= link_to "User Sign up", new_user_registration_path, :class => 'button_to'  %> |
+	    <%= link_to "Admin Login", new_admin_session_path, :class => 'button_to'  %> |
+	    <%= link_to "User Login", new_user_session_path, :class => 'button_to'  %> 
+	<% end %>
+
+</h3>
+

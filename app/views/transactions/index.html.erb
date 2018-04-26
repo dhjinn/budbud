@@ -1,0 +1,23 @@
+<h3>All Transactions</h3>
+	<% if user_signed_in? %>
+		<% if @user %>
+			<% @user.transactions.each do |transaction| %>
+				Club: <%= transaction.admin.club_name %> Date: <%= transaction.date %> 
+				Amount: <%= transaction.value %> Note: <%= transaction.notes %>
+				Reimbursed: <%= transaction.reimbursed %>
+		  	<% end %>`
+	  	<% end %>
+	  	<%= link_to "Back", users_path(:id), :class => "button medium"%>
+
+	<% elsif admin_signed_in? %>
+		<% if @admin %>                                                                                           
+			<% @admin.transactions.each do |transaction| %>
+				Club: <%= transaction.admin.club_name %> Member: <%= transaction.user.name %>
+				Date: <%= transaction.date %> 
+				Amount: <%= transaction.value %> Note: <%= transaction.notes %>
+				Reimbursed: <%= transaction.reimbursed %>
+		  	<% end %>
+	  	<% end %>
+	  	<%= link_to "Back", admins_url, :class => "button medium"%>
+	<% end %>
+

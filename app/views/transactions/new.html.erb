@@ -1,0 +1,9 @@
+<%= simple_form_for @transaction, :url => create_path do |f| %>
+  <%= f.association :admin %>
+  <%= f.input :date %>
+  <%= f.input :value %>
+  <%= f.input :notes %>
+
+
+  <%= f.button :submit %>
+<% end %>

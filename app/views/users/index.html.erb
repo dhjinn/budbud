@@ -1,0 +1,36 @@
+<h3>User Dashboard</h3>
+<p>Name: <%= current_user.name %></p>
+<p>Email: <%= current_user.email %></p>
+
+<%= link_to "New Transaction", new_path, :class => "button medium"%>
+
+<h3>Pending Transactions</h3>
+  <% if @user %>
+    <% @user.transactions.each do |transaction| %>
+      <% if not transaction.reimbursed %>
+          Club: <%= transaction.admin.club_name %> Date: <%= transaction.date %> 
+          Amount: <%= transaction.value %> Note: <%= transaction.notes %>
+        <% end %>   
+      <% end %>
+  <% end %>
+<%= link_to "All Transactions", all_path, :class => "button medium"%>
+
+<h3>Clubs I'm In</h3>
+<div class="container">
+    <div class="row">
+        <table>
+
+          <tbody>
+            <% if @clubs %>
+              <% @clubs.each do |club| %>
+                <tr>
+                  <td><%= club.club_name %></td>
+  <!--                 <td><%= club.id %></td> -->
+                </tr>
+              <% end %>
+            <% end %>
+        </tbody>
+
+        </table>
+    </div>
+</div>
