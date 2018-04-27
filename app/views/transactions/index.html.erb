@@ -1,4 +1,4 @@
-<h3>All Transactions</h3>
+<h3 class="heading">All Transactions</h3>
 	<% if user_signed_in? %>
 		<% current_user.transactions.each do |transaction| %>
 			Club: <%= transaction.club_name %> | Date: <%= transaction.date %> |

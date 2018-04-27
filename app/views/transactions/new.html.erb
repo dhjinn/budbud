@@ -1,8 +1,8 @@
 <%= simple_form_for @transaction, :url => create_path do |f| %>
   <%= f.collection_select(:club_name, Admin.all, :club_name, :club_name) %>
-  <%= f.input :date %>
-  <%= f.input :value %>
-  <%= f.input :notes %>
+  <%= f.input :date, required: true %>
+  <%= f.input :value, required: true %>
+  <%= f.input :notes, required: true %>
 
 
   <%= f.button :submit %>

@@ -8,8 +8,8 @@ end
 gem 'devise'
 gem 'bcrypt', git: 'https://github.com/codahale/bcrypt-ruby.git', :require => 'bcrypt'
 gem 'simple_form'
-gem 'foundation-rails'
-gem 'autoprefixer-rails'
+# gem 'foundation-rails'
+# gem 'autoprefixer-rails' #we tried... css didnt work after implementing foundation
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.6'
