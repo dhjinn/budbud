@@ -21,8 +21,7 @@
 <h3>Budget</h3>
   <% if @admin %>
       Total Budget: <%= @admin.balance %> 
-      
-      Current Balance: <%= @admin.balance %>
+
   <% end %>
 <br />
 <%= button_to "+ 0.01", update1_path(id: current_admin), :class => "button medium", :method => :patch %>

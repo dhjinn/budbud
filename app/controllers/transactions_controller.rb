@@ -33,7 +33,7 @@ class TransactionsController < ApplicationController
 	def reimburse
 		@transaction = Transaction.find(params[:id])
 		@transaction.update_attribute(:reimbursed, true)
-		current_admin.update_attribute(:balance, current_admin.balance - @transaction.value)
+		# current_admin.update_attribute(:balance, current_admin.balance - @transaction.value)
 		@transaction.save
 		redirect_to admins_url
 	end 
